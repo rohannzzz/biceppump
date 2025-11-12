@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { API_BASE_URL } from "@/config/api";
+import { API_ENDPOINTS } from "@/config/api";
+import PublicNavbar from "@/components/PublicNavbar";
 
 export default function Login() {
   const router = useRouter();
@@ -12,8 +13,8 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(API_BASE_URL.LOGIN, {
+    try { 
+      const response = await fetch(API_ENDPOINTS.LOGIN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -28,28 +29,13 @@ export default function Login() {
         alert(data.message || 'Login failed');
       }
     } catch (error) {
-      alert('Network error');
+      alert('Network error: ' + error.message);
     }
   };
 
   return (
     <div className="min-h-screen bg-red-900">
-      <nav className="bg-red-950 text-white px-6 py-4 shadow-lg">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl">💪</div>
-            <span className="text-2xl font-bold text-red-100">BicepPump</span>
-          </Link>
-          <div className="flex items-center space-x-4">
-            <Link href="/login" className="text-red-200 hover:text-red-100 font-medium">
-              Login
-            </Link>
-            <Link href="/signup" className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600">
-              Sign Up
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <PublicNavbar />
       
       <div className="flex items-center justify-center py-16">
         <div className="w-full max-w-sm bg-red-950 p-8 rounded-lg shadow-2xl border border-red-800">
