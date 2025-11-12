@@ -45,14 +45,27 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b px-6 py-4">
-        <Link href="/" className="text-2xl font-bold text-green-600">MediCare</Link>
+    <div className="min-h-screen bg-red-900">
+      <nav className="bg-gray-900 text-white px-6 py-4 shadow-lg">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="text-2xl">💪</div>
+            <span className="text-2xl font-bold text-orange-500">BicepPump</span>
+          </Link>
+          <div className="flex items-center space-x-4">
+            <Link href="/login" className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700">
+              Login
+            </Link>
+            <Link href="/signup" className="text-orange-500 hover:text-orange-400 font-medium">
+              Sign Up
+            </Link>
+          </div>
+        </div>
       </nav>
       
       <div className="flex items-center justify-center py-16">
-        <div className="w-full max-w-sm bg-white p-6 rounded shadow">
-          <h2 className="text-xl font-bold mb-6 text-center">Sign Up</h2>
+        <div className="w-full max-w-sm bg-red-950 p-8 rounded-lg shadow-2xl border border-red-800">
+          <h2 className="text-3xl font-black mb-6 text-center text-red-100 tracking-wide">SIGN UP</h2>
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
@@ -61,7 +74,7 @@ export default function Signup() {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-4 py-3 bg-red-900 border border-red-700 rounded text-red-100 placeholder-red-400 focus:outline-none focus:border-red-500"
               required
             />
             
@@ -71,7 +84,7 @@ export default function Signup() {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-4 py-3 bg-red-900 border border-red-700 rounded text-red-100 placeholder-red-400 focus:outline-none focus:border-red-500"
               required
             />
             
@@ -81,7 +94,7 @@ export default function Signup() {
               placeholder="Phone Number"
               value={formData.phoneNumber}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-4 py-3 bg-red-900 border border-red-700 rounded text-red-100 placeholder-red-400 focus:outline-none focus:border-red-500"
               required
             />
             
@@ -91,7 +104,7 @@ export default function Signup() {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-4 py-3 bg-red-900 border border-red-700 rounded text-red-100 placeholder-red-400 focus:outline-none focus:border-red-500"
               required
             />
             
@@ -101,27 +114,31 @@ export default function Signup() {
               placeholder="Confirm Password"
               value={formData.confirmPassword}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-4 py-3 bg-red-900 border border-red-700 rounded text-red-100 placeholder-red-400 focus:outline-none focus:border-red-500"
               required
             />
             
-            <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+            <button className="w-full bg-red-700 text-white py-3 rounded font-bold hover:bg-red-600 transition">
               Sign Up
             </button>
           </form>
           
-          <p className="text-center mt-4 text-sm">
-            <Link href="/login" className="text-green-600 hover:underline">
+          <p className="text-center mt-6 text-sm">
+            <Link href="/login" className="text-red-300 hover:text-red-200 hover:underline">
               Already have an account?
             </Link>
           </p>
           
-          <button 
-            onClick={() => window.open('https://biceppump.onrender.com', '_blank')}
-            className="w-full mt-4 bg-gray-500 text-white py-2 rounded hover:bg-gray-600"
-          >
-            Check Server Status
-          </button>
+          <p className="text-center mt-4 text-sm">
+            <a 
+              href="https://biceppump.onrender.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-red-400 hover:text-red-300 hover:underline"
+            >
+              Check Server Status
+            </a>
+          </p>
         </div>
       </div>
     </div>
