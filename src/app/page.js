@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GiMuscleUp } from "react-icons/gi";
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <nav className="bg-red-950 px-6 py-4 shadow-lg">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl">💪</div>
+            <GiMuscleUp className="text-3xl text-red-100" />
             <span className="text-2xl font-bold text-red-100">BicepPump</span>
           </Link>
           <div className="flex items-center space-x-4">
