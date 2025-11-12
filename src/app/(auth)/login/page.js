@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { API_ENDPOINTS } from "../../config/api";
+import { API_BASE_URL } from "@/config/api";
 
 export default function Login() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(API_ENDPOINTS.LOGIN, {
+      const response = await fetch(API_BASE_URL.LOGIN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -33,9 +33,12 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b px-6 py-4">
-        <Link href="/" className="text-2xl font-bold text-green-600">MediCare</Link>
+    <div className="min-h-screen bg-gray-100">
+      <nav className="bg-gray-900 text-white px-6 py-4 shadow-lg">
+        <Link href="/" className="flex items-center space-x-2">
+          <div className="text-2xl">💪</div>
+          <span className="text-2xl font-bold text-orange-500">BicepPump</span>
+        </Link>
       </nav>
       
       <div className="flex items-center justify-center py-16">
@@ -48,7 +51,7 @@ export default function Login() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-orange-500"
               required
             />
             
@@ -57,24 +60,24 @@ export default function Login() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-500"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-orange-500"
               required
             />
             
-            <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+            <button className="w-full bg-orange-600 text-white py-2 rounded hover:bg-orange-700">
               Login
             </button>
           </form>
           
           <p className="text-center mt-4 text-sm">
-            <Link href="/signup" className="text-green-600 hover:underline">
+            <Link href="/signup" className="text-orange-600 hover:underline">
               Create account
             </Link>
           </p>
           
           <button 
             onClick={() => window.open('https://biceppump.onrender.com', '_blank')}
-            className="w-full mt-4 bg-gray-500 text-white py-2 rounded hover:bg-gray-600"
+            className="w-full mt-4 bg-gray-700 text-white py-2 rounded hover:bg-gray-800"
           >
             Check Server Status
           </button>
