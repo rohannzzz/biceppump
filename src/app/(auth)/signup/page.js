@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { API_ENDPOINTS } from "../../config/api";
 
 export default function Signup() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://medicare-s009.onrender.com/api/auth/signup', {
+      const response = await fetch(API_ENDPOINTS.SIGNUP, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -116,7 +117,7 @@ export default function Signup() {
           </p>
           
           <button 
-            onClick={() => window.open('https://medicare-s009.onrender.com', '_blank')}
+            onClick={() => window.open('https://biceppump.onrender.com', '_blank')}
             className="w-full mt-4 bg-gray-500 text-white py-2 rounded hover:bg-gray-600"
           >
             Check Server Status
